@@ -72,9 +72,13 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
+    <IncludePath>D:\Kedrowsky Solutions\Simplest Renderer for 2D shapes\Renderer\Renderer\LoadShaders\include\Shapes;D:\Kedrowsky Solutions\Simplest Renderer for 2D shapes\Renderer\Renderer\LoadShaders\include\GL3;D:\Kedrowsky Solutions\Simplest Renderer for 2D shapes\Renderer\Renderer\LoadShaders\include\GL;D:\Kedrowsky Solutions\Simplest Renderer for 2D shapes\Renderer\Renderer\glew-2.0.0\include\GL;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\Kedrowsky Solutions\Simplest Renderer for 2D shapes\Renderer\Renderer\glew-2.0.0\lib\Release\x64;D:\Kedrowsky Solutions\Simplest Renderer for 2D shapes\Renderer\Renderer\LoadShaders\lib;D:\Kedrowsky Solutions\Simplest Renderer for 2D shapes\Renderer\Renderer\glfw-3.2.1.bin.WIN64\lib-vc2015;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
+    <IncludePath>D:\Kedrowsky Solutions\Simplest Renderer for 2D shapes\Renderer\Renderer\LoadShaders\include\Shapes;D:\Kedrowsky Solutions\Simplest Renderer for 2D shapes\Renderer\Renderer\LoadShaders\include\GL3;D:\Kedrowsky Solutions\Simplest Renderer for 2D shapes\Renderer\Renderer\LoadShaders\include\GL;D:\Kedrowsky Solutions\Simplest Renderer for 2D shapes\Renderer\Renderer\glfw-3.2.1.bin.WIN64\include\GLFW;D:\Kedrowsky Solutions\Simplest Renderer for 2D shapes\Renderer\Renderer\glew-2.0.0\include\GL;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\Kedrowsky Solutions\Simplest Renderer for 2D shapes\Renderer\Renderer\LoadShaders\lib;D:\Kedrowsky Solutions\Simplest Renderer for 2D shapes\Renderer\Renderer\glfw-3.2.1.bin.WIN64\lib-vc2015;D:\Kedrowsky Solutions\Simplest Renderer for 2D shapes\Renderer\Renderer\glew-2.0.0\lib\Release\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -84,7 +88,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -93,11 +97,12 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>opengl32.lib;glu32.lib;glfw3.lib;glew32.lib;glfw3dll.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -106,6 +111,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>opengl32.lib;glu32.lib;glfw3.lib;glew32.lib;glfw3dll.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -146,11 +152,15 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Renderer.h" />
+    <ClInclude Include="Shape.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="Renderer.cpp" />
+    <ClCompile Include="Shape.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
